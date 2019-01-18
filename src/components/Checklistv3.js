@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getMovies } from "../components/services/MovieService";
 import "../Movies.css"
 
-class Checklistv3 extends Component {
+class ChecklistV3 extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,7 +21,6 @@ class Checklistv3 extends Component {
   }
 
   render() {
-
 
     const movieList = this.state.movies.map((item, index) => {
       let title = item.isChecked === true ? <span className="checked">{item.title}</span> : <span>{item.title}</span>
@@ -59,4 +58,4 @@ class Checklistv3 extends Component {
   }
 }
 
-export default Checklistv3;
+export default ChecklistV3;
