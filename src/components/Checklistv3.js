@@ -4,11 +4,10 @@ import "../Movies.css"
 
 class Checklistv3 extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       movies: [],
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
