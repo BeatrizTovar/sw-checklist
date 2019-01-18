@@ -1,0 +1,14 @@
+.movie-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-entry {
+    width: auto;
+    justify-content: center;
+}
+
+.movie-checkbox {
+    margin-right: 10px;
+}
