@@ -1,6 +1,7 @@
 import React from "react";
+import { Form, Checkbox } from "semantic-ui-react";
 
-class Checklist extends React.Component {
+class ChecklistV2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -14,50 +15,44 @@ class Checklist extends React.Component {
         "Star Wars Episode III - Revenge of the Sith",
         "Star Wars Episode VII - The Force Awakens",
         "Star Wars Episode IX"
-      ],
-      checked: false
+      ]
+      //   checked: false
     };
-
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
-    this.setState({ checked: !this.state.checked });
-    console.log(e.target);
+    // debugger;
+    // console.log(e.target.id);
+    // this.setState({ checked: !this.state.checked });
+    this.setState({ [e.target.id]: e.target.checked });
+    console.log(this.state[e.target.id]);
   }
 
   render() {
     let showList = this.state.titleList.map((entry, index) => {
       if (entry === "Star Wars Episode IX") {
-        return (
-          <div key={index}>
-            <input type="checkbox" disabled />
-            {entry}
-          </div>
-        );
+        return <Checkbox key={index} id={index} label={entry} disabled />;
       }
       return (
-        <div key={index}>
-          <input
-            type="checkbox"
-            id={index}
-            name={index}
-            checked={this.state.checked === true}
-            onClick={this.handleChange}
-          />
-          {entry}
-        </div>
+        <Checkbox
+          key={index}
+          id={entry}
+          label={entry}
+          checked={this.state[entry]}
+          onClick={this.handleChange}
+        />
       );
     });
 
     return (
       <React.Fragment>
-        <h1>Coming from Checklist Component</h1>
-        <em>List</em>
-        {showList}
+        {console.log(this.state)}
+        ChecklistV2
+        <Form>{showList}</Form>
       </React.Fragment>
     );
   }
 }
 
-export default Checklist;
+export default ChecklistV2;
