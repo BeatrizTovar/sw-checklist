@@ -9,8 +9,6 @@ class App extends Component {
   render() {
     return (
       <div >
-        {/* <Checklist /> */}
-        {/* <Checklistv2 />  */}
         <ChecklistV3 />
       </div>
     );
