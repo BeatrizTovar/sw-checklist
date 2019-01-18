@@ -28,14 +28,14 @@ class Checklist extends React.Component {
 
   render() {
     let showList = this.state.titleList.map((entry, index) => {
-      if (entry === "Star Wars Episode IX") {
-        return (
-          <div key={index}>
-            <input type="checkbox" disabled />
-            {entry}
-          </div>
-        );
-      }
+      //   if (entry === "Star Wars Episode IX") {
+      //     return (
+      //       <div key={index}>
+      //         <input type="checkbox" disabled />
+      //         {entry}
+      //       </div>
+      //     );
+      //   }
       return (
         <div key={index}>
           <input

@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Checklist from "./components/Checklist";
-import ChecklistV2 from "./components/Checklistv2";
+import Checklistv2 from "./components/Checklistv2";
+import ChecklistV3 from "./components/Checklistv3";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div >
         {/* <Checklist /> */}
-        <ChecklistV2 />
+        {/* <Checklistv2 />  */}
+        <ChecklistV3 />
       </div>
     );
   }

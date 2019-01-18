@@ -27,27 +27,30 @@ class ChecklistV2 extends React.Component {
     // this.setState({ checked: !this.state.checked });
     this.setState({ [e.target.id]: e.target.checked });
     console.log(this.state[e.target.id]);
+    // console.log(this.state.titleList[e.target.id]);
   }
 
   render() {
+
+
     let showList = this.state.titleList.map((entry, index) => {
       if (entry === "Star Wars Episode IX") {
         return <Checkbox key={index} id={index} label={entry} disabled />;
       }
-      return (
-        <Checkbox
-          key={index}
-          id={entry}
-          label={entry}
-          checked={this.state[entry]}
-          onClick={this.handleChange}
-        />
-      );
+        return (
+            <Checkbox
+                key={index}
+                id={entry}
+                label={entry}
+                checked={console.log(this.state[entry])}
+                onClick={this.handleChange}
+            />
+        );
     });
 
     return (
       <React.Fragment>
-        {console.log(this.state)}
+        {/* {console.log(this.state)} */}
         ChecklistV2
         <Form>{showList}</Form>
       </React.Fragment>
@@ -56,3 +59,36 @@ class ChecklistV2 extends React.Component {
 }
 
 export default ChecklistV2;
+
+
+// class ChecklistV2 extends React.Component {
+//     constructor(props){
+//         super(props)
+//         this.state = {
+//             checked: false
+//         }
+        
+//         this.handleClick = this.handleClick.bind(this)
+//     }
+
+//     handleClick (e) {
+//         this.setState({
+//             checked: !this.state.checked
+//         })
+//     }
+
+//     render() {
+
+
+//         return (
+//             <React.Fragment>
+
+
+//             </React.Fragment>
+//         )
+     
+
+//     }
+    
+// }
+// export default ChecklistV2;

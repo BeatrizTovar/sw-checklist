@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { getMovies } from "../components/services/MovieService";
 import { Container } from 'semantic-ui-react'
+import '../Movies.css'
 
 class Checklistv3 extends Component {
   constructor(props) {
@@ -21,11 +22,8 @@ class Checklistv3 extends Component {
     console.log(this.state.movies[index])
 
     let obj = JSON.parse(JSON.stringify(this.state.movies))
-    // if (obj[index] == true){
-    //   obj[index].isChecked = true
-    // }
-    obj[index].isChecked = !obj[index].isChecked 
-    this.setState({ movies: obj})
+    obj[index].isChecked = !obj[index].isChecked
+    this.setState({ movies: obj })
 
     // this.setState({
     //   checked: e.target.checked
@@ -39,11 +37,24 @@ class Checklistv3 extends Component {
 
 
     const movieList = this.state.movies.map((item, index) => {
+      let title = item.isChecked === true ? <em>{item.title}</em> : <span>{item.title}</span>
+
+      if (item.title == "Star Wars Episode IX") {
+        return (
+        <div key={item.id} className="movie-entry">
+          <div >
+            <input className='movie-checkbox' key={item.id} type="checkbox" disabled />
+            <label>{title}</label>
+            <hr />
+          </div>
+        </div>
+        )
+      }
       return (
-        <div key={item.id} className="row">
-          <div className="col-md-3">
-            <input key={item.id} type="checkbox" onClick={e => this.handleClick(e, index)} />
-            <label>{item.title}</label>
+        <div key={item.id} className="movie-entry">
+          <div>
+            <input className='movie-checkbox' key={item.id} type="checkbox" onClick={e => this.handleClick(e, index)} />
+            <label>{title}</label>
             <hr />
           </div>
         </div>
@@ -53,10 +64,12 @@ class Checklistv3 extends Component {
     return (
       <React.Fragment>
         {console.log(this.state.movies)}
-        ChecklistV3
-        <div className="container">
-            <div>{movieList}</div>
-          </div>
+        <div className="movie-container title">
+        <span>CheckList</span>
+        </div>
+        <div className="movie-container">
+          <div>{movieList}</div>
+        </div>
       </React.Fragment>
     );
   }
